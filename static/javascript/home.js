@@ -1,17 +1,9 @@
-/* home.js
- * Small interactive behaviors for the site home page:
- * - mobile nav toggle (injects a toggle button if needed)
- * - header shrink / add .scrolled on scroll
- * - back-to-top button (created dynamically)
- * - smooth in-page anchor scrolling
- * - lazy-load images (uses loading="lazy" or IntersectionObserver)
- * - highlight active nav link
- */
+
 
 (function () {
 	'use strict';
 
-	// Utilities
+
 	function qs(sel, ctx) { return (ctx || document).querySelector(sel); }
 	function qsa(sel, ctx) { return Array.from((ctx || document).querySelectorAll(sel)); }
 
@@ -125,7 +117,10 @@
 	/* SMOOTH IN-PAGE ANCHOR SCROLLING */
 	function initSmoothAnchors() {
 		document.addEventListener('click', function (e) {
-			const a = e.target.closest('a');
+			// e.target can be a text node in some browsers; ensure we have an Element
+			let target = e.target;
+			if (target && target.nodeType === 3) target = target.parentElement;
+			const a = target && typeof target.closest === 'function' ? target.closest('a') : null;
 			if (!a) return;
 			const href = a.getAttribute('href') || '';
 			if (href.startsWith('#') && href.length > 1) {
@@ -138,7 +133,6 @@
 		});
 	}
 
-	/* LAZY IMAGES */
 	function initLazyImages() {
 		const imgs = qsa('img');
 		if ('loading' in HTMLImageElement.prototype) {
@@ -346,54 +340,101 @@ function initCarousel() {
 	start();
 }
 
-	/* --- New small behaviors for added home sections --- */
-	function initNewArrivals() {
-		// arrivals used to support drag-to-scroll when layout was horizontal.
-		// Now arrivals are a responsive grid, so this behavior is no-op.
-		return;
-	}
+/* --- New small behaviors for added home sections --- */
+function initNewArrivals() {
+	// arrivals used to support drag-to-scroll when layout was horizontal.
+	// Now arrivals are a responsive grid, so this behavior is no-op.
+	return;
+}
 
-	function initSeeMore(selector) {
-		const sections = Array.from(document.querySelectorAll(selector));
-		if (!sections.length) return;
-		sections.forEach(section => {
-			const track = section.querySelector('.arrivals-track');
-			const btn = section.querySelector('.arrivals-more');
-			if (!btn || !track) return;
+function initSeeMore(selector) {
+	const sections = Array.from(document.querySelectorAll(selector));
+	if (!sections.length) return;
+	sections.forEach((section, idx) => {
+		const track = section.querySelector('.arrivals-track');
+		const btn = section.querySelector('.arrivals-more');
+		if (!btn || !track) return;
 
-			btn.addEventListener('click', () => {
-				const expanded = track.classList.toggle('expanded');
-				// toggle hidden class on extras
-				Array.from(track.querySelectorAll('.arrival.extra')).forEach(el => {
-					if (expanded) el.classList.remove('hidden');
-					else el.classList.add('hidden');
-				});
-				btn.textContent = expanded ? 'Thu gọn' : 'Xem thêm';
+		btn.addEventListener('click', () => {
+			const expanded = track.classList.toggle('expanded');
+			// toggle hidden class on extras
+			Array.from(track.querySelectorAll('.arrival.extra')).forEach(el => {
+				if (expanded) el.classList.remove('hidden');
+				else el.classList.add('hidden');
+			});
+			btn.textContent = expanded ? 'Thu gọn' : 'Xem thêm';
+		});
+	});
+}
+
+	/* ARRIVAL DETAILS MODAL */
+	function initArrivalDetails() {
+		// create modal container
+		const modal = document.createElement('div');
+		modal.className = 'arrival-modal';
+		modal.innerHTML = `
+			<div class="arrival-modal-backdrop" data-role="backdrop"></div>
+			<div class="arrival-modal-panel" role="dialog" aria-modal="true">
+				<button class="arrival-modal-close" aria-label="Đóng">×</button>
+				<div class="arrival-modal-body"></div>
+			</div>`;
+		document.body.appendChild(modal);
+
+		function close() { modal.classList.remove('open'); }
+		function openFromArticle(article) {
+			const body = modal.querySelector('.arrival-modal-body');
+			const imgEl = article.querySelector('img');
+			const title = (article.querySelector('h4') || {}).textContent || '';
+			const meta = (article.querySelector('.meta') || {}).textContent || '';
+			const imgHtml = imgEl ? `<img src="${imgEl.src}" alt="${imgEl.alt || ''}">` : '';
+			body.innerHTML = `
+				<div class="arrival-modal-grid">
+					<div class="arrival-modal-media">${imgHtml}</div>
+					<div class="arrival-modal-info">
+						<h3>${title}</h3>
+						<p class="meta">${meta}</p>
+						<p class="desc">Mô tả chi tiết chưa có. Đây là ví dụ nội dung mô tả cho sách.</p>
+						<p><button class="btn primary borrow-btn">Xem chi tiết</button></p>
+					</div>
+				</div>`;
+			modal.classList.add('open');
+		}
+
+		// close handlers
+		modal.querySelector('[data-role="backdrop"]').addEventListener('click', close);
+		modal.querySelector('.arrival-modal-close').addEventListener('click', close);
+
+		// delegate clicks on arrival cards
+		qsa('.arrival').forEach(card => {
+			card.addEventListener('click', (e) => {
+				// ignore clicks on interactive elements inside the card
+				if (e.target.closest('button') || e.target.closest('a')) return;
+				openFromArticle(card);
 			});
 		});
 	}
 
-	/* events accordion removed (events section no longer present) */
+/* events accordion removed (events section no longer present) */
 
-	function initNewsletterForm() {
-		const form = document.querySelector('.newsletter-form');
-		if (!form) return;
-		form.addEventListener('submit', (e) => {
-			e.preventDefault();
-			const email = (form.querySelector('input[type="email"]') || {}).value || '';
-			const btn = form.querySelector('button');
-			const valid = /^\S+@\S+\.\S+$/.test(email.trim());
-			if (!valid) {
-				alert('Vui lòng nhập email hợp lệ');
-				return;
-			}
-			if (btn) { btn.disabled = true; btn.textContent = 'Đang gửi...'; }
-			// fake submit (no backend in this repo)
-			setTimeout(() => {
-				if (btn) { btn.disabled = false; btn.textContent = 'Đăng ký'; }
-				form.reset();
-				alert('Cảm ơn! Bạn đã đăng ký nhận tin.');
-			}, 900);
-		});
-	}
+function initNewsletterForm() {
+	const form = document.querySelector('.newsletter-form');
+	if (!form) return;
+	form.addEventListener('submit', (e) => {
+		e.preventDefault();
+		const email = (form.querySelector('input[type="email"]') || {}).value || '';
+		const btn = form.querySelector('button');
+		const valid = /^\S+@\S+\.\S+$/.test(email.trim());
+		if (!valid) {
+			alert('Vui lòng nhập email hợp lệ');
+			return;
+		}
+		if (btn) { btn.disabled = true; btn.textContent = 'Đang gửi...'; }
+		// fake submit (no backend in this repo)
+		setTimeout(() => {
+			if (btn) { btn.disabled = false; btn.textContent = 'Đăng ký'; }
+			form.reset();
+			alert('Cảm ơn! Bạn đã đăng ký nhận tin.');
+		}, 900);
+	});
+}
 

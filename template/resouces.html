@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>LibraryHub - Tài nguyên</title>
+	<link rel="stylesheet" href="/static/css/style.css">
+	<link rel="stylesheet" href="/static/css/home.css">
+	<link rel="stylesheet" href="/static/css/resources.css">
+</head>
+<body>
+
+<header class="navbar">
+	<div class="logo">
+		<img src="/static/image/l.png" alt="LibraryHub Logo" class="logo-image">
+		<span class="text">LibraryHub</span>
+	</div>
+	<span class="nav-toggle" aria-hidden="true" style="display:none"></span>
+	<nav>
+		<a class="home-btn" href="/template/home.html">Trang chủ</a>
+		<a class="resouces-btn" href="/template/resouces.html">Tài nguyên</a>
+		<a class="login-btn" href="/template/login_signup.html">Cá nhân</a>
+	</nav>
+</header>
+
+<main>
+	<section class="resources">
+		<div class="container-lg">
+			<h2>Tài nguyên sách</h2>
+			<p class="lede">Duyệt và tìm kiếm các sách có trong thư viện.</p>
+
+			<div class="resources-controls">
+				<input id="resource-search" type="search" placeholder="Tìm sách theo tiêu đề, tác giả, hoặc chủ đề..." aria-label="Tìm sách">
+				<select id="resource-filter">
+					<option value="all">Tất cả</option>
+					<option value="2025">2025</option>
+					<option value="2024">2024</option>
+					<option value="2023">2023</option>
+				</select>
+			</div>
+
+			<div id="resource-grid" class="resource-grid">
+				<!-- sample items -->
+				<article class="resource" data-title="Lập trình Python" data-author="Nguyễn A" data-year="2025" data-desc="Sách hướng dẫn lập trình Python cho người mới bắt đầu.">
+					<img src="/static/image/hero.jpg" alt="Lập trình Python">
+					<h4>Lập trình Python</h4>
+					<p class="meta">Nguyễn A • 2025</p>
+				</article>
+				<article class="resource" data-title="Cấu trúc dữ liệu" data-author="Trần B" data-year="2024" data-desc="Giải thích về cấu trúc dữ liệu và thuật toán cơ bản.">
+					<img src="/static/image/images.jpg" alt="Cấu trúc dữ liệu">
+					<h4>Cấu trúc dữ liệu</h4>
+					<p class="meta">Trần B • 2024</p>
+				</article>
+				<article class="resource" data-title="Thiết kế Web hiện đại" data-author="Lê C" data-year="2023" data-desc="Hướng dẫn xây dựng giao diện responsive với HTML/CSS/JS.">
+					<img src="/static/image/hero.jpg" alt="Thiết kế Web">
+					<h4>Thiết kế Web hiện đại</h4>
+					<p class="meta">Lê C • 2023</p>
+				</article>
+				<!-- more items can be added similarly -->
+			</div>
+		</div>
+	</section>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-col about">
+            <h4>LibraryHub</h4>
+            <p>Kết nối độc giả với kiến ​​thức. Khám phá các cuộc thi, hướng dẫn hàng tuần và thư viện kỹ thuật số của chúng tôi.</p>
+        </div>
+
+        <div class="footer-col links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Tài nguyên</a></li>
+                <li><a href="#">Cá nhân</a></li>
+
+            </ul>
+        </div>
+
+        <div class="footer-col contact">
+            <h4>Liên hệ</h4>
+            <p>Email: <a href="mailto:info@libraryhub.example">info@libraryhub.example</a></p>
+            <p>Điện thoại: +84 123 456 789</p>
+        </div>
+        
+        <div class="footer-col visit-newsletter">
+            <h4>Giờ mở cửa</h4>
+            <ul class="footer-hours">
+                <li>Thứ 2 - Thứ 6: 08:00 - 20:00</li>
+                <li>Thứ 7: 09:00 - 17:00</li>
+                <li>Chủ nhật: Đóng cửa</li>
+            </ul>
+
+            <h4 style="margin-top:12px;">Đăng ký nhận tin</h4>
+            <form class="newsletter-form" action="#" method="post">
+                <input type="email" name="email" placeholder="Nhập email của bạn" aria-label="Email">
+                <button type="submit">Đăng ký</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> LibraryHub. All rights reserved.</p>
+    </div>
+</footer>
+
+<div id="resource-modal" class="resource-modal" aria-hidden="true">
+	<div class="resource-modal-backdrop"></div>
+	<div class="resource-modal-panel" role="dialog" aria-modal="true">
+		<button class="resource-modal-close" aria-label="Đóng">×</button>
+		<div class="resource-modal-body"></div>
+	</div>
+</div>
+
+<script src="/static/javascript/resouce.js"></script>
+</body>
+</html>
