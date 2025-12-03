@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <div class="brand">
+        <i class="fa-solid fa-book-open"></i> Library Admin
+    </div>
+
+    <a href="dashboard.html" class="nav-link active">
+        <i class="fa-solid fa-gauge"></i> Dashboard
+    </a>
+
+    <a href="books.html" class="nav-link">
+        <i class="fa-solid fa-book"></i> Quản lý sách
+    </a>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+    <h2 class="mb-3"><i class="fa-solid fa-gauge me-2"></i>Dashboard</h2>
+
+    <div class="row mb-4">
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <p class="text-muted mb-1">Tổng sách</p>
+                    <h3 id="statTotal">0</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <p class="text-muted mb-1">Số tác giả</p>
+                    <h3 id="statAuthors">0</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <p class="text-muted mb-1">ISBN khác nhau</p>
+                    <h3 id="statIsbns">0</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
