@@ -31,31 +31,30 @@
 			<p class="lede">Duyệt và tìm kiếm các sách có trong thư viện.</p>
 
 			<div class="resources-controls">
-				<input id="resource-search" type="search" placeholder="Tìm sách theo tiêu đề, tác giả, hoặc chủ đề..." aria-label="Tìm sách">
-				<select id="resource-filter">
-					<option value="all">Tất cả</option>
-					<option value="2025">2025</option>
-					<option value="2024">2024</option>
-					<option value="2023">2023</option>
+				<input id="resource-search" type="search" placeholder="Tìm sách theo tiêu đề, tác giả..." aria-label="Tìm sách">
+				<select id="resource-category">
+					<option value="all">Tất cả loại</option>
+					<option value="digital">Tài liệu số</option>
+					<option value="paper">Tài liệu giấy</option>
 				</select>
 			</div>
 
 			<div id="resource-grid" class="resource-grid">
 				<!-- sample items -->
-				<article class="resource" data-title="Lập trình Python" data-author="Nguyễn A" data-year="2025" data-desc="Sách hướng dẫn lập trình Python cho người mới bắt đầu.">
+				<article class="resource" data-title="Lập trình Python" data-author="Nguyễn A" data-category="digital" data-desc="Sách hướng dẫn lập trình Python cho người mới bắt đầu.">
 					<img src="/static/image/hero.jpg" alt="Lập trình Python">
 					<h4>Lập trình Python</h4>
-					<p class="meta">Nguyễn A • 2025</p>
+					<p class="meta">Nguyễn A</p>
 				</article>
-				<article class="resource" data-title="Cấu trúc dữ liệu" data-author="Trần B" data-year="2024" data-desc="Giải thích về cấu trúc dữ liệu và thuật toán cơ bản.">
+				<article class="resource" data-title="Cấu trúc dữ liệu" data-author="Trần B" data-category="paper" data-desc="Giải thích về cấu trúc dữ liệu và thuật toán cơ bản.">
 					<img src="/static/image/images.jpg" alt="Cấu trúc dữ liệu">
 					<h4>Cấu trúc dữ liệu</h4>
-					<p class="meta">Trần B • 2024</p>
+					<p class="meta">Trần B</p>
 				</article>
-				<article class="resource" data-title="Thiết kế Web hiện đại" data-author="Lê C" data-year="2023" data-desc="Hướng dẫn xây dựng giao diện responsive với HTML/CSS/JS.">
+				<article class="resource" data-title="Thiết kế Web hiện đại" data-author="Lê C" data-category="digital" data-desc="Hướng dẫn xây dựng giao diện responsive với HTML/CSS/JS.">
 					<img src="/static/image/hero.jpg" alt="Thiết kế Web">
 					<h4>Thiết kế Web hiện đại</h4>
-					<p class="meta">Lê C • 2023</p>
+					<p class="meta">Lê C</p>
 				</article>
 				<!-- more items can be added similarly -->
 			</div>
