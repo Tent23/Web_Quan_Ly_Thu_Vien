@@ -1,0 +1,48 @@
+/* Page-specific styles for login / signup page */
+
+/* Make the page feel slightly different from main pages */
+body.login-page {
+	background: linear-gradient(180deg,#f5f7fb 0%, #ffffff 60%);
+}
+
+.container {
+	/* keep the shared container but ensure vertical centering on taller screens */
+	min-height: calc(100vh - 160px);
+	align-items: center;
+}
+
+.image-box { display: flex; align-items: center; justify-content: center; }
+.image-box img { border-radius: 12px; max-width: 420px; width: 100%; }
+
+.form-box { padding: 30px; }
+.form-box h2 { margin-top: 0; margin-bottom: 6px; }
+.form-box p { color: #556; margin-bottom: 14px; }
+
+.tabs { background: transparent; gap: 10px; }
+.tab { background: #f0f3f8; }
+.tab.active { background: #0a0a18; color: #fff; }
+
+.form-container { min-height: 320px; }
+
+/* subtle focus styles for inputs */
+form input:focus { outline: none; box-shadow: 0 4px 14px rgba(10,10,24,0.06); border-color: #aab6d6; }
+
+/* smaller screens adjustments */
+@media (max-width: 760px) {
+	.container { padding: 20px; min-height: auto; }
+	.form-box { width: 100%; max-width: 100%; }
+	.image-box { display:none; }
+}
+
+/* utility used by JS to hide forms */
+.hidden { display: none !important; }
+
+/* ensure transitions for slide classes (complements shared style.css) */
+.slide-in-left, .slide-in-right, .slide-out-left, .slide-out-right {
+	will-change: transform, opacity;
+}
+
+/* small helper for the login page CTA link */
+.forgot { color: #0a58ca; }
+
+/* End login_signup.css */

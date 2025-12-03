@@ -1,0 +1,310 @@
+/* Common project styles (shared) */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    color: #222;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* NAVBAR */
+.navbar {
+    width: 100%;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo { display: flex; align-items: center; font-size: 20px; }
+.logo .icon { font-size: 24px; margin-right: 6px; }
+nav a { margin-right: 12px; text-decoration: none; color: #555; padding: 8px 10px; border-radius: 8px; }
+
+/* active / hover styles for nav items */
+.navbar nav a:hover,
+.navbar nav a:focus {
+    background: rgba(10,10,24,0.06);
+    color: #0a0a18;
+}
+/* Nav/link styles (canonical definitions at top of file) */
+/* Duplicate nav/link styles removed */
+/* .nav-duplicated { } */
+.navbar nav a.active {
+    background: #0a0a18;
+    color: #fff;
+}
+
+.login-btn,
+.home-btn,
+.resouces-btn {
+    display: inline-block;
+    padding: 8px 18px;
+    background: #0a0a18;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    text-decoration: none;
+}
+/* Duplicate .login-btn styles removed */
+/* .login-btn { } */
+.login-btn:hover, .login-btn:focus { opacity: 0.9; }
+.login-btn.active { background: #0a0a18; }
+
+/* FOOTER (shared) */
+.site-footer {
+    background: #0a0a18;
+    color: #dfe6f3;
+    padding: 32px 28px 18px;
+    margin-top: 40px;
+}
+.site-footer a { color: #cfe3ff; text-decoration: none; }
+.footer-inner {
+    display: flex;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto 18px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.footer-col { flex: 1; min-width: 160px; }
+.footer-col h4 { margin: 0 0 8px; color: #fff; }
+.footer-col p, .footer-col li { color: #cfd8ee; font-size: 14px; line-height: 1.5; }
+.footer-col ul { list-style: none; padding: 0; margin: 0; }
+.footer-col ul li { margin-bottom: 8px; }
+.footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 12px; }
+
+@media (max-width: 760px) {
+    .footer-inner { flex-direction: column; gap: 18px; }
+}
+/* Reset and sensible defaults */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    color: #222;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* prevent slight horizontal scroll on small devices */
+}
+
+/* NAVBAR */
+.navbar {
+    width: 100%;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo { display: flex; align-items: center; font-size: 20px; }
+.logo .icon { font-size: 24px; margin-right: 6px; }
+nav a { margin-right: 25px; text-decoration: none; color: #555; }
+
+.login-btn {
+    padding: 8px 18px;
+    background: #0a0a18;
+    color: white;
+    border-radius: 8px;
+    border: none;
+}
+
+/* MAIN */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* allow stacking on small screens */
+}
+
+.image-box img {
+    width: 100%;
+    max-width: 500px; /* keeps image from growing too large */
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* FORM BOX */
+.form-box {
+    background: white;
+    padding: 28px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 430px; /* stays compact on wide screens */
+    flex: 0 1 430px; /* prefer to stay at form width when space allows */
+}
+
+.image-box { flex: 1 1 380px; min-width: 220px; }
+.form-box { flex: 0 1 430px; }
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tab {
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    cursor: pointer;
+    background: #eee;
+    border-radius: 20px;
+    transition: .3s;
+}
+
+.tab.active {
+    background: #0a0a18;
+    color: white;
+}
+
+/* FORM CONTAINER */
+.form-container {
+    position: relative;
+    width: 100%;
+    min-height: 260px;
+}
+
+/* Make forms stack so we can slide them horizontally */
+.form {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* FORM HIDDEN */
+.form.hidden {
+    display: none;
+    opacity: 0;
+}
+
+/* SHOW EFFECT */
+.form.show {
+    display: block;
+    animation: slideFadeIn .5s forwards;
+}
+
+/* HIDE EFFECT */
+.form.hide-animate {
+    animation: slideFadeOut .4s forwards;
+}
+
+/* ANIMATIONS */
+@keyframes slideFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideFadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to   { opacity: 0; transform: translateY(-20px); }
+}
+
+/* Directional slide animations */
+@keyframes slideInFromRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+    from { transform: translateX(-100%); opacity: 0; }
+    to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutToLeft {
+    from { transform: translateX(0); opacity: 1; }
+    to   { transform: translateX(-100%); opacity: 0; }
+}
+
+@keyframes slideOutToRight {
+    from { transform: translateX(0); opacity: 1; }
+    to   { transform: translateX(100%); opacity: 0; }
+}
+
+.slide-in-left {
+    animation: slideInFromRight .45s cubic-bezier(.22,.9,.35,1) forwards;
+}
+.slide-in-right {
+    animation: slideInFromLeft .45s cubic-bezier(.22,.9,.35,1) forwards;
+}
+.slide-out-left {
+    animation: slideOutToLeft .38s cubic-bezier(.22,.9,.35,1) forwards;
+}
+.slide-out-right {
+    animation: slideOutToRight .38s cubic-bezier(.22,.9,.35,1) forwards;
+}
+
+form label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.login-submit {
+    width: 100%;
+    padding: 12px;
+    background: #0a0a18;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.forgot {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    color: #0066cc;
+}
+
+/* FOOTER */
+.site-footer {
+    background: #0a0a18;
+    color: #dfe6f3;
+    padding: 32px 28px 18px;
+    margin-top: 40px;
+}
+.site-footer a { color: #cfe3ff; text-decoration: none; }
+.footer-inner {
+    display: flex;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto 18px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.footer-col { flex: 1; min-width: 160px; }
+.footer-col h4 { margin: 0 0 8px; color: #fff; }
+.footer-col p, .footer-col li { color: #cfd8ee; font-size: 14px; line-height: 1.5; }
+.footer-col ul { list-style: none; padding: 0; margin: 0; }
+.footer-col ul li { margin-bottom: 8px; }
+.footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 12px; }
+
+@media (max-width: 760px) {
+    .footer-inner { flex-direction: column; gap: 18px; }
+    .image-box img { width: 100%; }
+    .container { padding: 30px; gap: 20px; }
+}

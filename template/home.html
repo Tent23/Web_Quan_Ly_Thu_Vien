@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title>LibraryHub - Home</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/home.css">
+</head>
+<body>
+
+
+<header class="navbar">
+    <div class="logo">
+        <image src="/static/image/l.png" alt="LibraryHub Logo" class="logo-image">
+        <span class="text">LibraryHub</span>
+    </div>
+    <!-- inert nav-toggle placeholder to prevent JS from inserting hamburger on home -->
+    <span class="nav-toggle" aria-hidden="true" style="display:none"></span>
+    <nav>
+        <a class = "home-btn" href="/template/home.html">Trang chủ</a>
+        <a class ="resouces-btn" href="/template/resouces.html">Tài nguyên</a>
+        <a class="login-btn" href="/template/login_signup.html">Cá nhân</a>
+    </nav>
+</header>
+
+<main>
+    <!-- BANNER CAROUSEL (moved to be immediately under header) -->
+    <section class="banner-carousel">
+        <div class="carousel" aria-roledescription="carousel">
+            <button class="carousel-prev" aria-label="Previous slide">‹</button>
+            <div class="carousel-viewport">
+                <div class="carousel-track">
+                    <div class="slide"><img src="/static/image/banner1.jpg" alt="Slide 1" loading="lazy"></div>
+                    <div class="slide"><img src="/static/image/banner2.jpg" alt="Slide 2" loading="lazy"></div>
+                    <div class="slide"><img src="/static/image/banner3.jpg" alt="Slide 3" loading="lazy"></div>
+                    <div class="slide"><img src="/static/image/banner4.jpg" alt="Slide 4" loading="lazy"></div>
+                    <div class="slide"><img src="/static/image/banner2.jpg" alt="Slide 5" loading="lazy"></div>
+                </div>
+            </div>
+            <button class="carousel-next" aria-label="Next slide">›</button>
+        </div>
+        <!-- Search bar overlay centered near bottom of banner -->
+        <div class="banner-search" aria-hidden="false">
+            <form class="search-form" action="/search" method="get">
+                <input name="q" type="search" placeholder="Tìm sách, tác giả hoặc chủ đề..." aria-label="Tìm kiếm">
+                <button type="submit">Tìm</button>
+            </form>
+        </div>
+    </section>
+    <!-- Welcome bar at the very top -->
+    <div class="welcome-bar" role="region" aria-label="Welcome message">
+        <div class="welcome-inner">
+            <p>Chào mừng bạn đến với LibraryHub — Khám phá kho sách của chúng tôi ngay hôm nay! <a href="/template/login_signup.html">Đăng nhập</a></p>
+        </div>
+    </div>
+
+    <!-- WELCOME SECTION (similar style to intro, placed at top of content) -->
+    <section id="welcome" class="intro welcome-section">
+        <div class="container-lg">
+            <div class="intro-inner">
+                <div class="intro-text">
+                    <h2>Chào mừng tới LibraryHub</h2>
+                    <p>Chúng tôi chào đón bạn đến với cộng đồng đọc sách trực tuyến. Tại đây bạn có thể tìm thấy sách, tài liệu học tập, tham gia các thử thách và kết nối với những người cùng sở thích.</p>
+                    <p class="intro-cta"><a class="btn primary" href="/template/login_signup.html">Bắt đầu</a> <a class="btn ghost" href="#library">Khám phá ngay</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Explore collections removed per request -->
+
+    <section id="new-arrivals" class="new-arrivals">
+        <div class="container-lg">
+            <h2>Mới cập nhật</h2>
+            <p class="lede">Sách mới thêm vào thư viện — cập nhật hàng tuần.</p>
+            <div class="arrivals-actions">
+                <button class="arrivals-more" type="button">Xem thêm</button>
+            </div>
+            <div class="arrivals-wrap">
+                <div class="arrivals-track">
+                    <article class="arrival">
+                        <img src="/static/image/hero.jpg" alt="New 1" loading="lazy">
+                        <h4>Tiêu đề sách 1</h4>
+                        <p class="meta">Tác giả • 2025</p>
+                    </article>
+                    <article class="arrival">
+                        <img src="/static/image/images.jpg" alt="New 2" loading="lazy">
+                        <h4>Tiêu đề sách 2</h4>
+                        <p class="meta">Tác giả • 2025</p>
+                    </article>
+                    <article class="arrival">
+                        <img src="/static/image/hero.jpg" alt="New 3" loading="lazy">
+                        <h4>Tiêu đề sách 3</h4>
+                        <p class="meta">Tác giả • 2025</p>
+                    </article>
+                    <article class="arrival">
+                        <img src="/static/image/images.jpg" alt="New 4" loading="lazy">
+                        <h4>Tiêu đề sách 4</h4>
+                        <p class="meta">Tác giả • 2025</p>
+                    </article>
+                    <article class="arrival">
+                        <img src="/static/image/hero.jpg" alt="New 5" loading="lazy">
+                        <h4>Tiêu đề sách 5</h4>
+                        <p class="meta">Tác giả • 2025</p>
+                    </article>
+                    <!-- hidden extras (revealed by Xem thêm) -->
+                    <article class="arrival extra hidden">
+                        <img src="/static/image/images.jpg" alt="New 6" loading="lazy">
+                        <h4>Tiêu đề sách 6</h4>
+                        <p class="meta">Tác giả • 2025</p>
+                    </article>
+                    <article class="arrival extra hidden">
+                        <img src="/static/image/hero.jpg" alt="New 7" loading="lazy">
+                        <h4>Tiêu đề sách 7</h4>
+                        <p class="meta">Tác giả • 2025</p>
+                    </article>
+                    <article class="arrival extra hidden">
+                        <img src="/static/image/images.jpg" alt="New 8" loading="lazy">
+                        <h4>Tiêu đề sách 8</h4>
+                        <p class="meta">Tác giả • 2025</p>
+                    </article>
+                    <article class="arrival extra hidden">
+                        <img src="/static/image/hero.jpg" alt="New 9" loading="lazy">
+                        <h4>Tiêu đề sách 9</h4>
+                        <p class="meta">Tác giả • 2025</p>
+                    </article>
+                    <article class="arrival extra hidden">
+                        <img src="/static/image/images.jpg" alt="New 10" loading="lazy">
+                        <h4>Tiêu đề sách 10</h4>
+                        <p class="meta">Tác giả • 2025</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="most-searched" class="new-arrivals most-searched">
+        <div class="container-lg">
+            <h2>gợi ý</h2>
+            <p class="lede">gợi ý</p>
+            <div class="arrivals-actions">
+                <button class="arrivals-more" type="button">Xem thêm</button>
+            </div>
+            <div class="arrivals-wrap">
+                <div class="arrivals-track">
+                    <article class="arrival">
+                        <img src="/static/image/images.jpg" alt="Top 1" loading="lazy">
+                        <h4>Top tìm kiếm 1</h4>
+                        <p class="meta">Tác giả • 2024</p>
+                    </article>
+                    <article class="arrival">
+                        <img src="/static/image/hero.jpg" alt="Top 2" loading="lazy">
+                        <h4>Top tìm kiếm 2</h4>
+                        <p class="meta">Tác giả • 2023</p>
+                    </article>
+                    <article class="arrival">
+                        <img src="/static/image/images.jpg" alt="Top 3" loading="lazy">
+                        <h4>Top tìm kiếm 3</h4>
+                        <p class="meta">Tác giả • 2022</p>
+                    </article>
+                    <article class="arrival">
+                        <img src="/static/image/hero.jpg" alt="Top 4" loading="lazy">
+                        <h4>Top tìm kiếm 4</h4>
+                        <p class="meta">Tác giả • 2021</p>
+                    </article>
+                    <article class="arrival">
+                        <img src="/static/image/images.jpg" alt="Top 5" loading="lazy">
+                        <h4>Top tìm kiếm 5</h4>
+                        <p class="meta">Tác giả • 2020</p>
+                    </article>
+                    <article class="arrival extra hidden">
+                        <img src="/static/image/hero.jpg" alt="Top 6" loading="lazy">
+                        <h4>Top tìm kiếm 6</h4>
+                        <p class="meta">Tác giả • 2019</p>
+                    </article>
+                    <article class="arrival extra hidden">
+                        <img src="/static/image/images.jpg" alt="Top 7" loading="lazy">
+                        <h4>Top tìm kiếm 7</h4>
+                        <p class="meta">Tác giả • 2018</p>
+                    </article>
+                    <article class="arrival extra hidden">
+                        <img src="/static/image/hero.jpg" alt="Top 8" loading="lazy">
+                        <h4>Top tìm kiếm 8</h4>
+                        <p class="meta">Tác giả • 2017</p>
+                    </article>
+                    <article class="arrival extra hidden">
+                        <img src="/static/image/images.jpg" alt="Top 9" loading="lazy">
+                        <h4>Top tìm kiếm 9</h4>
+                        <p class="meta">Tác giả • 2016</p>
+                    </article>
+                    <article class="arrival extra hidden">
+                        <img src="/static/image/hero.jpg" alt="Top 10" loading="lazy">
+                        <h4>Top tìm kiếm 10</h4>
+                        <p class="meta">Tác giả • 2015</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events section removed per request -->
+
+    <section id="services" class="services">
+        <div class="container-lg">
+            <h2>Dịch vụ của chúng tôi</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <div><image> src ="/static/image/pl.png" </image></div>
+                    <h4>Mượn sách</h4>
+                    <p>Quy trình mượn đơn giản và nhanh chóng.</p>
+                </div>
+                <div class="service-item">
+                    <div><image> src ="/static/image/l.png" </image></div>
+                    <h4>Tài liệu số</h4>
+                    <p>Truy cập tài liệu điện tử mọi lúc, mọi nơi.</p>
+                </div>
+                <div class="service-item">
+                    <div><image> src ="/static/image/pl.png" </image></div>
+                    <h4>Sự kiện cộng đồng</h4>
+                    <p>Tham gia workshop, cuộc thi và câu lạc bộ đọc sách.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTRODUCTION / ABOUT THE LIBRARY (moved to top of content) -->
+    <section id="about-library" class="intro">
+        <div class="container-lg">
+            <div class="intro-inner">
+                <div class="intro-text">
+                    <h2>Giới thiệu về Thư viện LibraryHub</h2>
+                    <p>LibraryHub là nguồn tài nguyên số và cộng đồng đọc sách dành cho mọi lứa tuổi. Chúng tôi cung cấp hàng nghìn đầu sách, tài liệu học tập, bài hướng dẫn hàng tuần và các cuộc thi giúp nâng cao kỹ năng đọc và nghiên cứu.</p>
+                    <p>Tham gia LibraryHub để mượn sách, truy cập tài liệu số, tham gia thử thách đọc và kết nối với những người cùng sở thích.</p>
+                    <p class="intro-cta"><a class="btn primary" href="/template/login_signup.html">Đăng nhập</a> <a class="btn ghost" href="#library">Khám phá</a></p>
+                </div>
+
+                <div class="intro-stats">
+                    <div class="stat">
+                        <div class="num">12k+</div>
+                        <div class="label">Đầu sách</div>
+                    </div>
+                    <div class="stat">
+                        <div class="num">4k+</div>
+                        <div class="label">Thành viên</div>
+                    </div>
+                    <div class="stat">
+                        <div class="num">150+</div>
+                        <div class="label">Cuộc thi</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+</main>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-col about">
+            <h4>LibraryHub</h4>
+            <p>Kết nối độc giả với kiến ​​thức. Khám phá các cuộc thi, hướng dẫn hàng tuần và thư viện kỹ thuật số của chúng tôi.</p>
+        </div>
+
+        <div class="footer-col links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Tài nguyên</a></li>
+                <li><a href="#">Cá nhân</a></li>
+
+            </ul>
+        </div>
+
+        <div class="footer-col contact">
+            <h4>Liên hệ</h4>
+            <p>Email: <a href="mailto:info@libraryhub.example">info@libraryhub.example</a></p>
+            <p>Điện thoại: +84 123 456 789</p>
+        </div>
+        
+        <div class="footer-col visit-newsletter">
+            <h4>Giờ mở cửa</h4>
+            <ul class="footer-hours">
+                <li>Thứ 2 - Thứ 6: 08:00 - 20:00</li>
+                <li>Thứ 7: 09:00 - 17:00</li>
+                <li>Chủ nhật: Đóng cửa</li>
+            </ul>
+
+            <h4 style="margin-top:12px;">Đăng ký nhận tin</h4>
+            <form class="newsletter-form" action="#" method="post">
+                <input type="email" name="email" placeholder="Nhập email của bạn" aria-label="Email">
+                <button type="submit">Đăng ký</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> LibraryHub. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="/static/javascript/home.js"></script>
+<script>
+    (function(){ document.getElementById('year').textContent = new Date().getFullYear(); })();
+</script>
+</body>
+</html>

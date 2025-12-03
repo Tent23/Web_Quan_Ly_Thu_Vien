@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibraryHub - Login</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/login_signup.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">
+        <span class="icon">📘</span>
+        <span class="text">LibraryHub</span>
+    </div>
+    <nav>
+        <a class = "home-btn" href="/template/home.html">Trang chủ</a>
+        <a class ="resouces-btn" href="/template/resouces.html">Tài nguyên</a>
+        <a class="login-btn" href="/template/login_signup.html">Cá nhân</a>
+    </nav>
+</header>
+
+<section class="container">
+    <div class="image-box">
+        <img src="/static/image/images.jpg" alt="Books">
+    </div>
+
+    <div class="form-box">
+        <h2>Chào mừng đến với LibraryHub</h2>
+        <p>Đăng nhập vào tài khoản của bạn hoặc tạo mới</p>
+
+        <!-- TABS -->
+        <div class="tabs">
+            <button id="btnLogin" class="tab active">Đăng nhập</button>
+            <button id="btnSignup" class="tab">Đăng kí</button>
+        </div>
+
+        <!-- FORM AREA -->
+        <div class="form-container">
+
+    <!-- LOGIN FORM — HIỂN THỊ NGAY -->
+    <form id="loginForm" class="form">
+        <label>Email or SDT</label>
+        <input type="text" placeholder="Enter your email or member ID">
+
+        <label>Mật khẩu</label>
+        <input type="password" placeholder="Enter your password">
+
+        <button class="login-submit">Đăng nhập</button>
+        <a href="#" class="forgot">Quên mật khẩu?</a>
+    </form>
+
+    <!-- SIGNUP FORM — ẨN -->
+    <form id="signupForm" class="form hidden">
+        <label>Tên đầy đủ</label>
+        <input type="text" placeholder="Enter your full name">
+
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email">
+
+        <label>Mật khẩu</label>
+        <input type="password" placeholder="Create a password">
+
+        <button class="login-submit">Tạo tài khoản</button>
+    </form>
+
+</div>
+
+    </div>
+</section>
+
+<script src="/static/javascript/login_signup.js"></script>
+</script>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-col about">
+            <h4>LibraryHub</h4>
+            <p>Kết nối độc giả với kiến ​​thức. Khám phá các cuộc thi, hướng dẫn hàng tuần và thư viện kỹ thuật số của chúng tôi.</p>
+        </div>
+
+        <div class="footer-col links">
+            <h4>Quick Links</h4>
+            <ul>
+                <a class = "home-btn" href="/template/home.html">Trang chủ</a>
+                <a class ="resouces-btn" href="/template/resouces.html">Tài nguyên</a>
+                <a class="login-btn" href="/template/login_signup.html">Cá nhân</a>
+            </ul>
+        </div>
+
+        <div class="footer-col contact">
+            <h4>Liên hệ</h4>
+            <p>Email: <a href="mailto:info@libraryhub.example">info@libraryhub.example</a></p>
+            <p>Điện thoại: +84 123 456 789</p>
+        </div>
+        
+        <div class="footer-col visit-newsletter">
+            <h4>Giờ mở cửa</h4>
+            <ul class="footer-hours">
+                <li>Thứ 2 - Thứ 6: 08:00 - 20:00</li>
+                <li>Thứ 7: 09:00 - 17:00</li>
+                <li>Chủ nhật: Đóng cửa</li>
+            </ul>
+
+            <h4 style="margin-top:12px;">Đăng ký nhận tin</h4>
+            <form class="newsletter-form" action="#" method="post">
+                <input type="email" name="email" placeholder="Nhập email của bạn" aria-label="Email">
+                <button type="submit">Đăng ký</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> LibraryHub. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    // set year in footer
+    (function(){
+        var y = new Date().getFullYear();
+        var el = document.getElementById('year');
+        if (el) el.textContent = y;
+    })();
+</script>
+</body>
+</html>
