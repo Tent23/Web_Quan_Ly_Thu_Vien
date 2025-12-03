@@ -6,7 +6,7 @@ function qsa(s, ctx){ return Array.from((ctx||document).querySelectorAll(s)); }
 
 function initResources(){
     const search = qs('#resource-search');
-    const filter = qs('#resource-filter');
+    const category = qs('#resource-category');
     const grid = qs('#resource-grid');
     const items = qsa('.resource', grid);
 
@@ -14,20 +14,20 @@ function initResources(){
 
     function applyFilter(){
         const q = normalize(search.value);
-        const year = filter.value;
+        const cat = category ? category.value : 'all';
         items.forEach(it => {
             const title = normalize(it.dataset.title);
             const author = normalize(it.dataset.author);
             const desc = normalize(it.dataset.desc);
-            const y = it.dataset.year || '';
+            const c = (it.dataset.category || 'all').toString().toLowerCase();
             const matchQuery = !q || title.includes(q) || author.includes(q) || desc.includes(q);
-            const matchYear = year === 'all' || y === year;
-            it.style.display = (matchQuery && matchYear) ? '' : 'none';
+            const matchCat = cat === 'all' || c === cat;
+            it.style.display = (matchQuery && matchCat) ? '' : 'none';
         });
     }
 
     search.addEventListener('input', applyFilter);
-    filter.addEventListener('change', applyFilter);
+    if (category) category.addEventListener('change', applyFilter);
 
     // modal
     const modal = qs('#resource-modal');
@@ -38,11 +38,10 @@ function initResources(){
     function openModalFrom(el){
         const title = el.dataset.title || '';
         const author = el.dataset.author || '';
-        const year = el.dataset.year || '';
         const desc = el.dataset.desc || '';
         const img = el.querySelector('img');
         const imgHtml = img ? `<img src="${img.src}" alt="${img.alt||''}">` : '';
-        modalBody.innerHTML = `<div class="resource-modal-grid"><div class="resource-modal-media">${imgHtml}</div><div class="resource-modal-info"><h3>${title}</h3><p class="meta">${author} • ${year}</p><p class="desc">${desc}</p></div></div>`;
+        modalBody.innerHTML = `<div class="resource-modal-grid"><div class="resource-modal-media">${imgHtml}</div><div class="resource-modal-info"><h3>${title}</h3><p class="meta">${author}</p><p class="desc">${desc}</p></div></div>`;
         modal.classList.add('open');
         modal.setAttribute('aria-hidden','false');
     }
