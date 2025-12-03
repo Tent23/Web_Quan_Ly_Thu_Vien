@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sách đang mượn</title>
+    <link rel="stylesheet" href="../static/css/borrowed_books.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>LibraryHub</h2>
+        <ul>
+            <li class="active">Danh sách sách mượn</li>
+            <li>Lịch sử sách đã mượn</li>
+            <li>Hình phạt</li>
+            <li>Thông báo</li>
+            <li>Đăng Xuất</li>
+        </ul>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+
+        <div class="title">Danh sách sách đang mượn</div>
+
+        <table>
+            <tr>
+                <th>Ảnh</th>
+                <th>Tên sách</th>
+                <th>Ngày mượn</th>
+                <th>Trả dự kiến</th>
+                <th>Trạng thái</th>
+                <th>Thao tác</th>
+            </tr>
+
+            <!-- ROW 1 -->
+            <tr>
+                <td><div class="book-img"></div></td>
+                <td>Clean Code</td>
+                <td>01/03/2025</td>
+                <td>15/03/2025</td>
+                <td><span class="status on-time">Đúng hạn</span></td>
+                <td><button class="btn-return">Trả sách</button></td>
+            </tr>
+
+            <!-- ROW 2 -->
+            <tr>
+                <td><div class="book-img"></div></td>
+                <td>Hands-On Machine Learning</td>
+                <td>25/02/2025</td>
+                <td>10/03/2025</td>
+                <td><span class="status late">Quá hạn</span></td>
+                <td><button class="btn-return">Trả sách</button></td>
+            </tr>
+
+            <!-- ROW 3 -->
+            <tr>
+                <td><div class="book-img"></div></td>
+                <td>Clean Architecture</td>
+                <td>28/02/2025</td>
+                <td>12/03/2025</td>
+                <td><span class="status on-time">Đúng hạn</span></td>
+                <td><button class="btn-return">Trả sách</button></td>
+            </tr>
+
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>

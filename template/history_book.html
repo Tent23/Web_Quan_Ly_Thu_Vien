@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch sử sách đã mượn</title>
+    <link rel="stylesheet" href="../static/css/history_books.css">
+    <link rel="stylesheet" href="../static/css/history_books.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>LibraryHub</h2>
+        <ul>
+            <li>Danh sách sách mượn</li>
+            <li class="active">Lịch sử sách đã mượn</li>
+            <li>Hình phạt</li>
+            <li>Thông báo</li>
+            <li>Đăng Xuất</li>
+        </ul>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="title">Lịch sử sách đã mượn</div>
+
+        <table>
+            <tr>
+                <th>Ảnh</th>
+                <th>Tên sách</th>
+                <th>Ngày mượn</th>
+                <th>Ngày trả</th>
+                <th>Trạng thái</th>
+                <th>Thao tác</th>
+            </tr>
+
+            <!-- ROW 1 -->
+            <tr>
+                <td><div class="book-img"></div></td>
+                <td>Deep Learning</td>
+                <td>01/02/2025</td>
+                <td>10/02/2025</td>
+                <td><span class="status returned">Đã trả</span></td>
+                <td><button class="btn-view">Xem</button></td>
+            </tr>
+
+            <!-- ROW 2 -->
+            <tr>
+                <td><div class="book-img"></div></td>
+                <td>Artificial Intelligence: A Modern Approach</td>
+                <td>05/01/2025</td>
+                <td>17/01/2025</td>
+                <td><span class="status returned">Đã trả</span></td>
+                <td><button class="btn-view">Xem</button></td>
+            </tr>
+
+            <!-- ROW 3 -->
+            <tr>
+                <td><div class="book-img"></div></td>
+                <td>Clean Architecture</td>
+                <td>10/12/2024</td>
+                <td>22/12/2024</td>
+                <td><span class="status returned">Đã trả</span></td>
+                <td><button class="btn-view">Xem</button></td>
+            </tr>
+
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>
